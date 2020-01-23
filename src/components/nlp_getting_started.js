@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './form.css';
+import './nlp_getting_started.css';
 
 
 class NlpGettingStarted extends Component {
@@ -22,6 +22,7 @@ class NlpGettingStarted extends Component {
         return (
             <div className="row">
                 <div className="column">
+                    <h5 className="center">NLP Getting Started</h5>
                     <form onSubmit={this.handleSubmit}>
                         <label htmlFor="text">Text:</label>
                         <br/>
