@@ -17,7 +17,7 @@ class NlpGettingStarted extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         let body = [this.state.value];
-        axios.post("http://localhost:8000/nlp-getting-started/predict", {"text":body}).then(response => {
+        axios.post("https://kaggle-deploy.herokuapp.com/nlp-getting-started/predict", {"text":body}).then(response => {
             document.getElementById('prediction').textContent = response.data.result;
         })
         // axios.post("https://kaggle-deploy.herokuapp.com/nlp-getting-started/predict", {"text":body}).then(response => {
