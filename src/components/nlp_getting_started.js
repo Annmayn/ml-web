@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './nlp_getting_started.css';
+import axios from 'axios';
 
 
 class NlpGettingStarted extends Component {
@@ -15,7 +16,14 @@ class NlpGettingStarted extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        document.getElementById('prediction').textContent = this.state.value
+        let body = [this.state.value];
+        axios.post("http://localhost:8000/nlp-getting-started/predict", {"text":body}).then(response => {
+            document.getElementById('prediction').textContent = response.data.result;
+        })
+        // axios.post("https://kaggle-deploy.herokuapp.com/nlp-getting-started/predict", {"text":body}).then(response => {
+        //     console.log("r:",response)
+        //     document.getElementById('prediction').textContent = response;
+        // })
     }
 
     render(){
